@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Admin</title>
+
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+
+      height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
+
+      background: linear-gradient(
+      -45deg,
+      #0f172a,
+      #1e3a8a,
+      #6d28d9,
+      #0ea5e9
+      );
+
+      background-size: 400% 400%;
+
+      animation: gradientBG 12s ease infinite;
+
+      position: relative;
+
+    }
+
+    /* Animated Gradient Background */
+
+    @keyframes gradientBG{
+
+      0%{
+        background-position: 0% 50%;
+      }
+
+      50%{
+        background-position: 100% 50%;
+      }
+
+      100%{
+        background-position: 0% 50%;
+      }
+
+    }
+
+    /* Floating Glowing Balls */
+
+    .circle{
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(25px);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .circle1{
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.12);
+      top: 5%;
+      left: 8%;
+    }
+
+    .circle2{
+      width: 350px;
+      height: 350px;
+      background: rgba(0,255,255,0.12);
+      bottom: 5%;
+      right: 5%;
+      animation-delay: 2s;
+    }
+
+    .circle3{
+      width: 220px;
+      height: 220px;
+      background: rgba(255,0,255,0.12);
+      top: 60%;
+      left: 35%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float{
+
+      0%{
+        transform: translateY(0px);
+      }
+
+      50%{
+        transform: translateY(-35px);
+      }
+
+      100%{
+        transform: translateY(0px);
+      }
+
+    }
+
+    /* Glass Welcome Card */
+
+    .welcome-box{
+
+      width: 90%;
+      max-width: 550px;
+
+      padding: 70px 45px;
+
+      border-radius: 35px;
+
+      background: rgba(255,255,255,0.08);
+
+      border: 1px solid rgba(255,255,255,0.15);
+
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      box-shadow:
+      0 8px 32px rgba(0,0,0,0.35),
+      0 0 25px rgba(255,255,255,0.1);
+
+      text-align: center;
+
+      color: white;
+
+      z-index: 10;
+
+      animation:
+      popup 1.2s ease,
+      pulse 3s infinite;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+    /* Light Reflection */
+
+    .welcome-box::before{
+
+      content: "";
+
+      position: absolute;
+
+      top: -50%;
+      left: -60%;
+
+      width: 200%;
+      height: 200%;
+
+      background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.15),
+      transparent
+      );
+
+      transform: rotate(25deg);
+
+      animation: shine 5s linear infinite;
+
+    }
+
+    @keyframes shine{
+
+      0%{
+        left: -120%;
+      }
+
+      100%{
+        left: 120%;
+      }
+
+    }
+
+    /* Popup Animation */
+
+    @keyframes popup{
+
+      from{
+        opacity: 0;
+        transform: scale(0.6) rotate(-8deg);
+      }
+
+      to{
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+
+    }
+
+    /* Slow Pulse */
+
+    @keyframes pulse{
+
+      0%{
+        transform: scale(1);
+      }
+
+      50%{
+        transform: scale(1.02);
+      }
+
+      100%{
+        transform: scale(1);
+      }
+
+    }
+
+    /* Main Heading */
+
+    .welcome-box h1{
+
+      font-size: 60px;
+
+      margin-bottom: 15px;
+
+      animation:
+      glow 2s infinite alternate,
+      textFloat 3s ease-in-out infinite;
+
+    }
+
+    /* Text Glow */
+
+    @keyframes glow{
+
+      from{
+        text-shadow:
+        0 0 10px #fff,
+        0 0 20px cyan,
+        0 0 40px cyan;
+      }
+
+      to{
+        text-shadow:
+        0 0 20px #fff,
+        0 0 40px #00ffff,
+        0 0 70px #00ffff;
+      }
+
+    }
+
+    /* Floating Text */
+
+    @keyframes textFloat{
+
+      0%{
+        transform: translateY(0px);
+      }
+
+      50%{
+        transform: translateY(-8px);
+      }
+
+      100%{
+        transform: translateY(0px);
+      }
+
+    }
+
+    /* Subtitle */
+
+    .welcome-box p{
+
+      font-size: 20px;
+
+      opacity: 0.9;
+
+      letter-spacing: 1px;
+
+      margin-top: 10px;
+
+      animation: fadeIn 2s ease;
+
+    }
+
+    @keyframes fadeIn{
+
+      from{
+        opacity: 0;
+      }
+
+      to{
+        opacity: 1;
+      }
+
+    }
+
+    /* Loading Dots */
+
+    .loading{
+
+      margin-top: 35px;
+
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+
+    }
+
+    .dot{
+
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+
+      background: white;
+
+      animation: bounce 1.5s infinite;
+
+    }
+
+    .dot:nth-child(2){
+      animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3){
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce{
+
+      0%, 80%, 100%{
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+
+      40%{
+        transform: scale(1.4);
+        opacity: 1;
+      }
+
+    }
+
+    /* Mobile Responsive */
+
+    @media(max-width: 600px){
+
+      .welcome-box{
+        padding: 60px 25px;
+      }
+
+      .welcome-box h1{
+        font-size: 42px;
+      }
+
+      .welcome-box p{
+        font-size: 17px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Background Effects -->
+
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+
+  <!-- Welcome Card -->
+
+  <div class="welcome-box">
+
+    <h1>
+      Welcome Admin 🚀
+    </h1>
+
+    <p>
+      Login Successful
+    </p>
+
+    <!-- Loading Animation -->
+
+    <div class="loading">
+
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // Redirect after 3 seconds
+
+    setTimeout(function(){
+
+      window.location.href = "index.html";
+
+    }, 5000);
+
+  </script>
+
+</body>
+</html>
